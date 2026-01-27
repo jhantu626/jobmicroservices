@@ -1,6 +1,7 @@
 package io.app.service.impl;
 
 import io.app.dto.ApiResponse;
+import io.app.exception.DuplicateFoundException;
 import io.app.exception.RequiredFieldException;
 import io.app.exception.ResouceNotFoundException;
 import io.app.modal.Company;
@@ -31,6 +32,10 @@ public class CompanyServiceImpl implements CompanyService {
 
         if (company.getMaxSize() == 0) {
             throw new RequiredFieldException("Maximum Company Size is Required");
+        }
+
+        if (repository.existsByName(company.getName())){
+            throw new DuplicateFoundException("Company Already Exist!");
         }
 
         repository.save(company);
