@@ -3,7 +3,7 @@ package io.app.service.impl;
 import io.app.dto.ApiResponse;
 import io.app.exception.DuplicateFoundException;
 import io.app.exception.RequiredFieldException;
-import io.app.exception.ResouceNotFoundException;
+import io.app.exception.ResourceNotFoundException;
 import io.app.modal.Company;
 import io.app.repository.CompanyRepository;
 import io.app.service.CompanyService;
@@ -49,7 +49,7 @@ public class CompanyServiceImpl implements CompanyService {
         Optional<Company> company=repository.findById(id);
 
         if (!company.isPresent()){
-            throw new ResouceNotFoundException("Company Not Found");
+            throw new ResourceNotFoundException("Company Not Found");
         }
 
         return company.get();
