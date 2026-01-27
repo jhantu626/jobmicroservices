@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: CompanyService
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/companyservice
+    username: root
+    password: pritam@123
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+
+    show-sql: true
