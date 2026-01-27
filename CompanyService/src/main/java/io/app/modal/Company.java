@@ -21,7 +21,8 @@ public class Company {
     private Long id;
     private String name;
     private String description;
-    private String industry;
+    @Enumerated(EnumType.STRING)
+    private Industry industry;
     private String websiteUrl;
     private String location;
     private int minSize;
