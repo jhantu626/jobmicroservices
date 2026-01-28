@@ -22,8 +22,6 @@ public class JobServiceImpl implements JobService {
     @Override
     public ApiResponse createJob(Job job) {
         repository.save(job);
-
-
         return new ApiResponse("Job Created Successfully",true);
     }
 
