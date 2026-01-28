@@ -1,1 +1,28 @@
-spring.application.name=ApiGateway
+server:
+  port: 9097
+spring:
+  application:
+    name: ApiGateway
+
+  config:
+    import: configserver:http://localhost:9090
+  cloud:
+    gateway:
+      server:
+        webmvc:
+          routes:
+            - id: CompanyService
+              uri: lb://CompanyService
+              predicates:
+                - Path=/api/v1/company/**
+              filters:
+                - StripPrefix=2
+
+            - id: JobService
+              uri:
+                lb://JobService
+              predicates:
+                - Path=/api/v1/job/**
+              filters:
+                - StripPrefix=2
+
