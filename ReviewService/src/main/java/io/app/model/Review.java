@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.aspectj.apache.bcel.classfile.Module;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -33,9 +34,15 @@ public class Review {
 
     @PrePersist
     private void preCreate(){
-        if (rating<0 || rating>5){
+        if (description==null){
+            throw new RequiredFieldException("Description Required");
+        }else if (rating<0 || rating>5){
             throw new RequiredFieldException("Rating should between 0 to 5");
+        }else if (companyId==0 && jobId==0){
+            throw new RequiredFieldException("Company or Job Id is required");
         }
+
+
         this.likeCount=0;
         this.dislikeCount=0;
         this.createdAt=LocalDateTime.now();
