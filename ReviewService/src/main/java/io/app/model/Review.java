@@ -22,6 +22,8 @@ public class Review {
     private long id;
     private double rating;
     private String description;
+    @Enumerated(EnumType.STRING)
+    private ReviewType reviewType;
     private long jobId;
     private long companyId;
     private long likeCount;
@@ -38,6 +40,11 @@ public class Review {
         this.dislikeCount=0;
         this.createdAt=LocalDateTime.now();
         this.updatedAt= LocalDateTime.now();
+    }
+
+    @PreUpdate
+    private void preUpdate(){
+        this.updatedAt=LocalDateTime.now();
     }
 
 }
