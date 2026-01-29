@@ -4,6 +4,8 @@ import io.app.dto.ApiResponse;
 import io.app.model.Job;
 import io.app.service.impl.JobServiceImpl;
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,6 +29,12 @@ public class JobController {
                              @RequestParam(required = false,defaultValue = "10") int size,
                              @RequestParam(required = false,defaultValue = "0") int pageNo){
         return service.jobsByCompanyId(companyId,pageNo,size);
+    }
+
+    @GetMapping("/check/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public ApiResponse checkJobExistence(@PathVariable("id") long id){
+        return service.checkExistById(id);
     }
 
 

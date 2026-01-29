@@ -1,5 +1,6 @@
 package io.app.repository;
 
+import io.app.dto.ApiResponse;
 import io.app.model.Job;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

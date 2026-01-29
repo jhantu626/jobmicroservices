@@ -45,4 +45,10 @@ public class JobServiceImpl implements JobService {
 
         return jobs;
     }
+
+    @Override
+    public ApiResponse checkExistById(Long jobId) {
+        boolean jobExist=repository.existsById(jobId);
+        return new ApiResponse("",jobExist);
+    }
 }
