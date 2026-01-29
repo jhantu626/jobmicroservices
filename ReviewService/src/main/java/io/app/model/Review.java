@@ -38,8 +38,10 @@ public class Review {
             throw new RequiredFieldException("Description Required");
         }else if (rating<0 || rating>5){
             throw new RequiredFieldException("Rating should between 0 to 5");
-        }else if (companyId==0 && jobId==0){
-            throw new RequiredFieldException("Company or Job Id is required");
+        }else if (reviewType==ReviewType.REVIEW && companyId==0){
+            throw new RequiredFieldException("Company Id is required");
+        }else if (reviewType==ReviewType.JOB && companyId==0){
+            throw new RequiredFieldException("Job Id is required");
         }
 
 
