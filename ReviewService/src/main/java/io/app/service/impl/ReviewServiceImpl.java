@@ -46,12 +46,12 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     @Override
-    public Page<Review> getReviewsByCompanyId(long companyId, long pageNo, long size) {
+    public Page<Review> getReviewsByCompanyId(long companyId, int pageNo, int size) {
         return null;
     }
 
     @Override
-    public Page<Review> getReviewsByJobId(long jobId, long pageNo, long size) {
+    public Page<Review> getReviewsByJobId(long jobId, int pageNo, int size) {
         return null;
     }
 }
