@@ -28,6 +28,12 @@ public class ReviewController {
         return service.getReviewsByCompanyId(companyId,page,size);
     }
 
+    @GetMapping("/job")
+    public Page<Review> reviewsByJobId(@RequestParam("job") Long jobId,
+                                       @RequestParam(required = false,value = "page",defaultValue = "0") int pageNo,
+                                       @RequestParam(required = false,value = "size",defaultValue = "10") int size){
+        return service.getReviewsByJobId(jobId,pageNo,size);
+    }
 
 
 }
