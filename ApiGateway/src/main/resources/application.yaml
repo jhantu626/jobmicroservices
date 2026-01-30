@@ -26,3 +26,10 @@ spring:
               filters:
                 - StripPrefix=2
 
+            - id: ReviewService
+              uri: lb://ReviewService
+              predicates:
+                - Path=/api/v1/review/**
+              filters:
+                - StripPrefix=2
+

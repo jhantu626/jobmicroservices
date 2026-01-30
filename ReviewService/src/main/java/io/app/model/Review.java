@@ -2,10 +2,7 @@ package io.app.model;
 
 import io.app.exception.RequiredFieldException;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.aspectj.apache.bcel.classfile.Module;
 
 import java.time.LocalDate;
