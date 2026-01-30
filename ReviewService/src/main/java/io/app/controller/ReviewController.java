@@ -22,10 +22,12 @@ public class ReviewController {
 
 
     @GetMapping("/company")
-    public Page<Review> reviewsByCompanyId(@RequestParam("company") long companyId,
-                                           @RequestParam(value = "page",defaultValue = "0") int page,
-                                           @RequestParam(value = "size",defaultValue = "10") int size){
+    public Page<Review> reviewsByCompanyId(@RequestParam("company") Long companyId,
+                                           @RequestParam(required = false, value = "page",defaultValue = "0") int page,
+                                           @RequestParam(required = false, value = "size",defaultValue = "10") int size){
         return service.getReviewsByCompanyId(companyId,page,size);
     }
+
+
 
 }
