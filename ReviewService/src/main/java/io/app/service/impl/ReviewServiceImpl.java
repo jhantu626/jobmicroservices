@@ -9,6 +9,8 @@ import io.app.model.ReviewType;
 import io.app.repository.ReviewRepository;
 import io.app.service.ReviewService;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
