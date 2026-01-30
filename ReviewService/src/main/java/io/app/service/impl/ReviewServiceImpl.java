@@ -47,7 +47,9 @@ public class ReviewServiceImpl implements ReviewService {
 
     @Override
     public Page<Review> getReviewsByCompanyId(long companyId, int pageNo, int size) {
-        return null;
+        Pageable pageable=PageRequest.of(pageNo,size);
+        Page<Review> reviews=repository.findReviewByCompanyId(companyId,pageable);
+        return reviews;
     }
 
     @Override
