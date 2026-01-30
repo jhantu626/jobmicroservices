@@ -3,10 +3,8 @@ package io.app.controller;
 import io.app.dto.ApiResponse;
 import io.app.model.Review;
 import io.app.service.impl.ReviewServiceImpl;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.Page;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/review")
@@ -22,5 +20,12 @@ public class ReviewController {
         return service.createReview(review);
     }
 
+
+    @GetMapping("/company")
+    public Page<Review> reviewsByCompanyId(@RequestParam("company") long companyId,
+                                           @RequestParam(value = "page",defaultValue = "0") int page,
+                                           @RequestParam(value = "size",defaultValue = "10") int size){
+        return service.getReviewsByCompanyId(companyId,page,size);
+    }
 
 }
